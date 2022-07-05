@@ -1,0 +1,41 @@
+<html>
+
+<head>
+<title> 방명록 </title>
+<style>
+table {
+   width: 100%;
+   text-align: center;
+   border-collapse: collapse;
+   border-top: 2px solid #ed0606;
+}
+
+th,
+td {
+   border-bottom: 1px dashed #001763;
+}
+</style>
+</head>
+<body>
+<h2> 방명록 </h2>
+<div>
+<table>
+   <thead>
+   <th> 제목 </th>
+    <th> 내용 </th>
+    <th> 글쓴이 </th>
+   </thead>
+<tbody> <% for(var i of list) { %> <tr>
+   <td> <%= i.title %></td>
+   <td> <%= i.content %></td>
+   <td> <%= i.name %></td>
+   <td><a href="/download/<%=i.file %>"><button>File Download</button> </a></td>
+   <td><a href="/modify/<%=i.seq %>"><button>[수정]</a></button>
+      <a href="/delete/<%=i.seq %>"><button>[삭제]</a></button></td>
+
+   </tr> <% } %> </tbody>
+   <a href="/write"><button>글쓰기</button></a>
+</table>
+</div>
+</body>
+</html>
